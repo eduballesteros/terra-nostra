@@ -1,0 +1,6 @@
+[submodule "terra-nostra-back"]
+	path = terra-nostra-back
+	url = https://github.com/eduballesteros/terra-nostra-back.git
+[submodule "terra-nostra-api"]
+	path = terra-nostra-api
+	url = https://github.com/eduballesteros/terra-nostra-api.git
