@@ -1,0 +1,108 @@
+:root {
+  --verde-principal: #003300;
+  --verde-claro: #A8D08D;
+  --verde-oscuro: #2F5233;
+  --verde-brillante: #76B947;
+  --naranja-acento: #F18817;
+  --blanco: #fefefe;
+}
+
+/* Fondo fijo degradado */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Baskerville', serif;
+  background: linear-gradient(to bottom right, var(--verde-principal), var(--verde-claro), var(--verde-oscuro));
+  background-size: cover;
+  color: var(--blanco);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor del error */
+.error-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeInScale 0.7s ease-out;
+  max-width: 500px;
+  width: 90%;
+}
+
+/* Animación de entrada */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Logo */
+.logo-container {
+  margin-bottom: 20px;
+}
+.logo-container img {
+  width: 70px;
+  transition: transform 0.3s ease;
+}
+.logo-container img:hover {
+  transform: scale(1.1) rotate(2deg);
+  cursor: pointer;
+}
+
+/* Título */
+.error-title {
+  font-size: 2rem;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+}
+
+/* Mensaje */
+.error-message {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+/* Botón */
+.btn {
+  background-color: var(--naranja-acento);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background-color: #ffa943;
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .error-container {
+    padding: 30px 20px;
+  }
+  .error-title {
+    font-size: 1.7rem;
+  }
+  .error-message {
+    font-size: 1rem;
+  }
+}

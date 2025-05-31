@@ -1,0 +1,184 @@
+:root {
+  --color-primary: #3A5A40;
+  --color-secondary: #A3B18A;
+  --color-primary-light: #6F8F72;
+  --color-accent: #F18817;
+  --color-light: #F9F9F9;
+  --color-text: #333333;
+  --color-muted: #888888;
+  --color-border: #E0E0E0;
+}
+
+body {
+  background-color: var(--color-light);
+  font-family: 'Helvetica Neue', sans-serif;
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+/* ==============================
+    Menú lateral izquierdo
+============================== */
+aside {
+  background-color: transparent;
+  padding: 1rem 1.5rem;
+  border-right: 1px solid var(--color-border);
+  min-height: 100%;
+}
+
+aside h5 {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+aside .nav-link {
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+aside .nav-link:hover {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+aside .nav-link:hover svg {
+  fill: #fff;
+}
+
+aside .nav-link.active {
+  background-color: var(--color-primary-light);
+  color: #fff !important;
+  font-weight: 600;
+  border-left: 4px solid var(--color-primary);
+  padding-left: calc(1rem - 4px);
+}
+
+aside .nav-link.active svg {
+  fill: #fff !important;
+}
+
+/* ==============================
+    Panel derecho (contenido principal)
+============================== */
+section.col-md-9 {
+  background-color: #fff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+section p.text-muted {
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ==============================
+    Tablas Responsive
+============================== */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table-bordered th {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-border);
+}
+
+.table-bordered td {
+  border-color: var(--color-border);
+}
+
+/* ==============================
+    Bloques de datos
+============================== */
+#infoUsuario,
+section .py-3 {
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+#infoUsuario .row p,
+section .py-3 p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#infoUsuario .fw-semibold,
+section .fw-semibold {
+  color: var(--color-muted);
+}
+
+/* ==============================
+   Botones
+============================== */
+button.btn {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ==============================
+   ⚠ Alertas
+============================== */
+.alert-success {
+  background-color: #d8f3dc;
+  border-left: 4px solid var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+
+.alert-danger {
+  background-color: #ffe5e5;
+  border-left: 4px solid #b00020;
+  color: #b00020;
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+
+/* ==============================
+    Responsive
+============================== */
+@media (max-width: 768px) {
+  aside {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1rem;
+  }
+
+  section.col-md-9 {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+}

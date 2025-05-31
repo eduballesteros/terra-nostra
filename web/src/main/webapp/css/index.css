@@ -1,0 +1,317 @@
+:root {
+  --color-primary: #003300;
+  --color-secondary: #597931;
+  --color-warning: #ff9900;
+  --color-light: #f5f5f5;
+  --color-accent: #00aaff;
+}
+
+/* Reset y tipografía base */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--color-primary);
+}
+
+/* Tipografías auxiliares */
+.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+}
+.libre-baskerville-bold {
+  font-weight: 700;
+}
+.libre-baskerville-regular-italic {
+  font-style: italic;
+}
+
+/* ==============================
+   CARRUSEL DE IMÁGENES
+============================== */
+.custom-carousel {
+  max-width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ==============================
+   PRODUCTOS
+============================== */
+.container-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card {
+  background-color: var(--color-light);
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: var(--color-warning);
+}
+
+.card:hover .card-title {
+  color: var(--color-warning);
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+}
+
+.text-muted strong {
+  color: var(--color-warning);
+}
+
+.product-btn,
+.btn-terranostra {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 5px 8px;
+  font-size: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.product-btn:hover,
+.btn-terranostra:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+.badge-terranostra {
+  background-color: var(--color-secondary);
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 0.35em 0.6em;
+  border-radius: 0.25rem;
+}
+
+
+/* ==============================
+   BUSCADOR Y TEXTO DESTACADO
+============================== */
+.text {
+  font-family: "Libre Baskerville", serif;
+  font-size: 3.1rem;
+  margin: 30px auto;
+  text-align: center;
+  color: var(--color-primary);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.text:hover {
+  color: var(--color-secondary);
+  transform: scale(1.05);
+}
+.search-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: var(--color-light);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.search-input:focus {
+  border-color: var(--color-warning);
+  box-shadow: 0 0 8px var(--color-warning);
+}
+
+/* ==============================
+   FEATURES / CARACTERÍSTICAS
+============================== */
+.features-container {
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.feature-box {
+  background-color: var(--color-light);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.feature-icon {
+  width: 100px;
+  margin: 0 auto 12px;
+}
+.feature-content {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+.feature-link {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.feature-link:hover {
+  background-color: var(--color-warning);
+  color: #fff;
+  border-color: var(--color-warning);
+}
+
+.modal-content.custom-modal {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem 0.5rem;
+  animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.custom-modal .modal-header {
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  padding: 1rem;
+}
+
+.custom-modal .modal-body {
+  padding: 1rem 2rem 2rem;
+  font-size: 1.1rem;
+}
+
+.custom-modal h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.btn-terranostra {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-terranostra:hover {
+    transform: scale(1.02);
+}
+
+
+.badge-terranostra {
+    background-color: var(--color-secondary);
+    color: white;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 0.35em 0.6em;
+    border-radius: 0.25rem;
+}
+
+
+
+
+/* ==============================
+   ANIMACIONES Y RESPONSIVE
+============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .search-box {
+    max-width: 90%;
+    padding: 8px;
+  }
+  .search-input {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,55 @@
+:root {
+  --color-primary: #003300;
+  --color-secondary: #597931;
+  --color-warning: #ff9900;
+  --color-light: #f5f5f5;
+  --color-accent: #00aaff;
+}
+
+footer.terra-footer {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding-top: 2rem;
+}
+
+.terra-footer h5 {
+    color: var(--color-secondary);
+}
+
+.terra-footer a {
+    color: var(--color-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.terra-footer a:hover {
+    color: var(--color-warning);
+}
+
+.terra-footer .social-icons i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    transition: color 0.3s;
+}
+
+.terra-footer .social-icons i:hover {
+    color: var(--color-accent);
+}
+
+.terra-footer .form-control {
+    border-radius: 0;
+}
+
+.terra-footer .btn-success {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.terra-footer .btn-success:hover {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+}
+
+.terra-footer .border-top {
+    border-top: 1px solid var(--color-light);
+}

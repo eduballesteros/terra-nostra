@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+    container_name: terraapi
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://82.223.120.203:3307/terranostradb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: api_user
+      SPRING_DATASOURCE_PASSWORD: TuPassSegura123!
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQLDialect
+    ports:
+      - "8081:8080"
+
+  web:
+    build:
+      context: ./web
+    container_name: terra_web
+    depends_on:
+      - api
+    ports:
+      - "8080:8080"
