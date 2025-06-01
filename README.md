@@ -23,7 +23,7 @@ terra-nostra/
 ├── docker-compose.yml    (Orquestación de contenedores)
 └── README.md
 
----
+```
 
 
 ---
