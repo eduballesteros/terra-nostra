@@ -79,7 +79,6 @@ terra-nostra/
 
 ### Comandos
 
-```
 # Construcción y ejecución
 docker compose up -d --build
 
@@ -92,13 +91,14 @@ docker compose down
 
 ### Servicios expuestos
 
+```
 | Servicio | Puerto | URL                                      |
 |----------|--------|-------------------------------------------|
 | API      | 8081   | http://localhost:8081/api/...             |
 | Web      | 8082   | http://localhost:8082                    |
 | MySQL    | 3306   | Localhost                                 |
 | NGINX    | 443/80 | https://terra-nostra.tudominio.com       |
-
+```
 ## 🧠 Autor
 
 **Eduardo Ballesteros Pérez**  
