@@ -9,19 +9,19 @@
 
 ## 📁 Estructura del Proyecto
 
+```plaintext
 terra-nostra/
--├── api/ # API REST con Spring Boot
--│ ├── Dockerfile
--│ ├── pom.xml
--│ └── src/main/java/...
--├── web/ # Aplicación web con JSP
--│ ├── Dockerfile
--│ ├── pom.xml
--│ └── src/main/webapp/
--├── db/ # Scripts y dump de base de datos
--├── docker-compose.yml # Orquestación de contenedores
--└── README.md
-
+├── api/                  (API REST con Spring Boot)
+│   ├── Dockerfile
+│   ├── pom.xml
+│   └── src/main/java/...
+├── web/                  (Aplicación web con JSP)
+│   ├── Dockerfile
+│   ├── pom.xml
+│   └── src/main/webapp/
+├── db/                   (Scripts y dump de base de datos)
+├── docker-compose.yml    (Orquestación de contenedores)
+└── README.md
 
 ---
 
