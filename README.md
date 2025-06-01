@@ -10,17 +10,20 @@
 ## 📁 Estructura del Proyecto
 
 terra-nostra/
-├── api/ # API REST con Spring Boot
-│ ├── Dockerfile
-│ ├── pom.xml
-│ └── src/main/java/...
-├── web/ # Aplicación web con JSP
-│ ├── Dockerfile
-│ ├── pom.xml
-│ └── src/main/webapp/
-├── db/ # Scripts y dump de base de datos
-├── docker-compose.yml # Orquestación de contenedores
-└── README.md
+-├── api/ # API REST con Spring Boot
+-│ ├── Dockerfile
+-│ ├── pom.xml
+-│ └── src/main/java/...
+-├── web/ # Aplicación web con JSP
+-│ ├── Dockerfile
+-│ ├── pom.xml
+-│ └── src/main/webapp/
+-├── db/ # Scripts y dump de base de datos
+-├── docker-compose.yml # Orquestación de contenedores
+-└── README.md
+
+
+---
 
 
 ---
@@ -29,50 +32,41 @@ terra-nostra/
 
 ### Backend (API)
 
-- Java 21 + Spring Boot 3
-- Spring Security + JWT
-- JPA (Hibernate) + MySQL 8
-- JavaMail para correos de verificación y facturas
-- Docker
+- Java 21 + Spring Boot 3  
+- Spring Security + JWT  
+- JPA (Hibernate) + MySQL 8  
+- JavaMail para correos de verificación y facturas  
+- Docker  
 
 ### Frontend (Web Dinámico)
 
-- JSP + JSTL
-- JavaScript (AJAX, Fetch API)
+- JSP + JSTL  
+- JavaScript (AJAX, Fetch API)  
 - CSS personalizado + FontAwesome
-- Tomcat 9
-
-### Otros
-
-- Docker + Docker Compose
-- NGINX como proxy inverso
-- PDFBox para generación de facturas
-- Logback para logging
-- Git + GitHub
-
+  
 ---
 
 ## 🔐 Seguridad
 
-- Login con verificación de correo electrónico
-- Autenticación y autorización con JWT
-- Contraseñas cifradas con BCrypt
-- Protección de endpoints
+- Login con verificación de correo electrónico  
+- Autenticación y autorización con JWT  
+- Contraseñas cifradas con BCrypt  
+- Protección de endpoints  
 
 ---
 
 ## 🛒 Funcionalidades Clave
 
-- Catálogo de productos
-- Carrito persistente en base de datos
-- Reseñas con verificación de sesión
-- Pedidos y facturas PDF
-- Verificación de cuenta por correo
-- Recuperación de contraseña
-- Perfil de usuario con pedidos históricos
-- Integración de pago con PayPal
-- Diseño responsive personalizado
-- Panel de administración
+- Catálogo de productos  
+- Carrito persistente en base de datos  
+- Reseñas con verificación de sesión  
+- Pedidos y facturas PDF  
+- Verificación de cuenta por correo  
+- Recuperación de contraseña  
+- Perfil de usuario con pedidos históricos  
+- Integración de pago con PayPal  
+- Diseño responsive personalizado  
+- Panel de administración  
 
 ---
 
@@ -80,8 +74,12 @@ terra-nostra/
 
 ### Requisitos
 
-- Docker + Docker Compose
+- Docker + Docker Compose  
 - Dominio y certificados SSL (Let’s Encrypt o similar)
+
+### Comandos
+
+```
 # Construcción y ejecución
 docker compose up -d --build
 
@@ -90,6 +88,7 @@ docker compose logs -f
 
 # Detener contenedores
 docker compose down
+
 
 ### Servicios expuestos
 
