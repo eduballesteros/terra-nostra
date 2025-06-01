@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-
     window.solicitarFactura = function (pedidoId) {
         const email = document.body.dataset.email;
         if (!email) {
@@ -182,13 +181,11 @@ document.addEventListener("DOMContentLoaded", function () {
         modalTitulo.textContent = titulo;
         modalMensaje.textContent = mensaje;
 
-        // Cambia el color del botón en función del tipo
         const footerBtn = document.querySelector("#notificationModal .modal-footer .btn");
         footerBtn.className = "btn btn-" + tipo;
 
         modal.show();
     }
-
 
     const linkPedidos = document.getElementById("linkPedidos");
     const linkPerfil = document.getElementById("linkPerfil");
@@ -245,6 +242,61 @@ document.addEventListener("DOMContentLoaded", function () {
                 alertaCambio.classList.remove("d-none");
                 alertaCambio.className = "alert alert-danger";
                 alertaCambio.textContent = "❌ Error al enviar el correo. Intenta más tarde.";
+            });
+        });
+    }
+
+    // ✅ Abrir modal de edición con valores cargados
+    const btnAbrirModalEditar = document.getElementById("btnAbrirModalEditar");
+    const modalEditar = new bootstrap.Modal(document.getElementById("modalEditarUsuario"));
+
+    if (btnAbrirModalEditar && modalEditar) {
+        btnAbrirModalEditar.addEventListener("click", () => {
+            document.getElementById("editNombre").value = nombreActual;
+            document.getElementById("editApellido").value = apellidoActual;
+            document.getElementById("editTelefono").value = telefonoActual;
+            document.getElementById("editDireccion").value = direccionActual;
+            document.getElementById("editEmail").value = document.body.dataset.email;
+
+            modalEditar.show();
+        });
+    }
+
+    // ✅ Enviar cambios del formulario por PUT
+    const formEditarUsuario = document.getElementById("formEditarUsuario");
+    const alertaModal = document.getElementById("alertaModal");
+
+    if (formEditarUsuario) {
+        formEditarUsuario.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById("editNombre").value.trim();
+            const apellido = document.getElementById("editApellido").value.trim();
+            const telefono = document.getElementById("editTelefono").value.trim();
+            const direccion = document.getElementById("editDireccion").value.trim();
+            const email = document.getElementById("editEmail").value.trim();
+
+            const datos = { nombre, apellido, telefono, direccion, email };
+
+            fetch("/usuario/actualizar", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(res => res.json())
+            .then(data => {
+                alertaModal.classList.remove("d-none");
+                alertaModal.className = "alert alert-success";
+                alertaModal.textContent = data.mensaje;
+
+                setTimeout(() => location.reload(), 1500);
+            })
+            .catch(() => {
+                alertaModal.classList.remove("d-none");
+                alertaModal.className = "alert alert-danger";
+                alertaModal.textContent = "❌ No se pudo actualizar el usuario. Inténtalo más tarde.";
             });
         });
     }

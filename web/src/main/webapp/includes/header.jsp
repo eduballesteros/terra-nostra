@@ -83,10 +83,6 @@
 
                         <button class="modal-btn" type="submit">REGISTRARSE</button>
 
-                        <button type="button" class="google-login-btn" id="googleRegisterBtn">
-                            <img src="${pageContext.request.contextPath}/icons/google-icon.svg" alt="Google" />
-                            Registrarse con Google
-                        </button>
 
                         <p class="line">¿Ya tienes cuenta? <a href="javascript:void(0)" onclick="toggleForm()">Inicia Sesión</a></p>
                     </form>
@@ -108,10 +104,6 @@
 
                         <button class="modal-btn" type="submit">INICIA SESIÓN</button>
 
-                        <button type="button" class="google-login-btn" id="googleLoginBtn">
-                            <img src="${pageContext.request.contextPath}/icons/google-icon.svg" alt="Google" />
-                            Continuar con Google
-                        </button>
 
                         <p class="line">¿Has olvidado tu contraseña? <a href="javascript:void(0);" onclick="abrirRecuperarContrasenia()">Recupérala aquí</a></p>
                         <p class="line">¿No tienes cuenta? <a href="javascript:void(0)" onclick="toggleForm()">Regístrate</a></p>

@@ -55,7 +55,7 @@ public class RecuperacionService {
             String json = mapper.writeValueAsString(Collections.singletonMap("email", email));
 
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI("http://localhost:8081/api/usuario/solicitar-cambio")) //
+                    .uri(new URI("http://terraapi:8080/api/usuario/solicitar-cambio")) //
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(json))
                     .build();

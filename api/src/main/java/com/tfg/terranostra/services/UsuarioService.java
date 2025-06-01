@@ -229,7 +229,7 @@ public class UsuarioService {
         tokenRepository.save(nuevoToken);
 
         // Generar enlace de recuperación
-        String link = "http://localhost:8080/cambiar-contrasenia?token=" + token;
+        String link = "https://terra-nostra.eduballesterosperez.com/cambiar-contrasenia?token=" + token;
 
         String asunto = "🔐 Recuperación de contraseña - Terra Nostra";
         String cuerpoHtml = """
@@ -299,7 +299,7 @@ public class UsuarioService {
             }
         }
 
-        String link = "http://localhost:8081/verificacion/confirmar?token=" + token;
+        String link = "https://terra-nostra.eduballesterosperez.com/api/verificacion/confirmar?token=" + token;
         String asunto = "📩 Verifica tu cuenta en Terra Nostra";
 
         String cuerpoHtml = """

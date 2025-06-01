@@ -54,7 +54,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:8080"); // Permite peticiones desde el frontend
+        configuration.addAllowedOrigin("https://terra-nostra.eduballesterosperez.com"); // Permite peticiones desde el frontend
         configuration.addAllowedMethod("*"); // Permite todos los métodos: GET, POST, etc.
         configuration.addAllowedHeader("*"); // Permite todos los headers
         configuration.setAllowCredentials(true); // Permite enviar cookies y credenciales
@@ -67,7 +67,7 @@ public class SecurityConfig {
 
     /**
      * Configuración global de CORS.
-     * Permite peticiones desde el frontend (por ejemplo, desde http://localhost:8080).
+     * Permite peticiones desde el frontend (por ejemplo, desde https://terra-nostra.eduballesterosperez.com).
      *
      * @return Configurador de CORS con reglas personalizadas.
      */
@@ -77,7 +77,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:8080")
+                        .allowedOrigins("https://terra-nostra.eduballesterosperez.com")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);

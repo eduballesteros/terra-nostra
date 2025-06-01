@@ -285,7 +285,7 @@ public class UsuarioService {
     public boolean validarTokenRecuperacion(String token) {
         try {
             HttpClient cliente = HttpClient.newHttpClient();
-            String url = "http://localhost:8081/api/auth/validar-token?token=" + token;
+            String url = "http://terraapi:8080/api/auth/validar-token?token=" + token;
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(url))

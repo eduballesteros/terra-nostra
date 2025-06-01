@@ -1,4 +1,4 @@
-let registroEnCurso = false; // 🔒 Previene doble clic rápido
+let registroEnProceso = false; // 🔒 Previene doble clic rápido
 
 // Validación de contraseña
 function validarRegistro() {
@@ -30,10 +30,10 @@ function mostrarNotificacion(titulo, mensaje, tipo) {
 // Envío de formulario de registro
 document.getElementById("registerForm")?.addEventListener("submit", async function (e) {
     e.preventDefault();
-    if (registroEnCurso) return; // ⛔ Bloquea si ya hay uno en proceso
+    if (registroEnProceso) return; // ⛔ Bloquea si ya hay uno en proceso
     if (!validarRegistro()) return;
 
-    registroEnCurso = true; // 🚫 Marca que ya se está enviando
+    registroEnProceso = true; // 🚫 Marca que ya se está enviando
 
     const formData = new FormData(this);
 
@@ -54,7 +54,7 @@ document.getElementById("registerForm")?.addEventListener("submit", async functi
         console.error("❌ Error en la solicitud de registro:", err);
         mostrarNotificacion("Error", "❌ Error inesperado al registrar.", "error");
     } finally {
-        registroEnCurso = false; // 🔁 Libera para permitir otro intento
+        registroEnProceso = false; // 🔁 Libera para permitir otro intento
     }
 });
 
