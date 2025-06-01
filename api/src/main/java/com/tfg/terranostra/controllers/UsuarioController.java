@@ -166,6 +166,20 @@ public class UsuarioController {
         }
     }
 
+    /**
+     * Inicia el proceso de recuperación de contraseña para un usuario.
+     *
+     * Este endpoint recibe un email, verifica si existe en el sistema y, en caso afirmativo,
+     * genera un token de recuperación que es enviado al correo proporcionado con un enlace
+     * para restablecer la contraseña.
+     *
+     * - Si el correo existe, se envía correctamente el enlace y se responde con código 200.
+     * - Si el usuario no existe o hay un fallo en el proceso, se responde con código 404.
+     *
+     * @param body Mapa con una clave `"email"` que contiene el correo del usuario solicitante.
+     * @return `ResponseEntity` con un mensaje indicando el resultado de la operación.
+     */
+
     @PostMapping("/solicitar-cambio")
     public ResponseEntity<String> solicitarCambioContrasenia(@RequestBody Map<String, String> body) {
         String email = body.get("email");

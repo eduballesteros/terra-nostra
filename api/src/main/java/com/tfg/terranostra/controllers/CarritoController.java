@@ -18,10 +18,11 @@ public class CarritoController {
     private CarritoService carritoService;
 
     /**
-     * Devuelve el carrito actual del usuario.
+     * Devuelve el contenido actual del carrito asociado a un usuario específico.
      *
-     * @param usuarioId ID del usuario
-     * @return DTO con el contenido del carrito
+     * @param usuarioId ID del usuario cuyo carrito se desea consultar.
+     * @return `ResponseEntity` con el objeto `CarritoDto` si se encuentra el carrito,
+     *         o un mensaje de error en caso de fallo.
      */
     @GetMapping("/{usuarioId}")
     public ResponseEntity<?> obtenerCarrito(@PathVariable Long usuarioId) {
@@ -36,10 +37,13 @@ public class CarritoController {
 
     /**
      * Agrega un producto al carrito del usuario.
+     * Si el producto ya existe, aumenta la cantidad.
      *
-     * @param usuarioId ID del usuario
-     * @param item      Datos del producto a añadir
+     * @param usuarioId ID del usuario que realiza la acción.
+     * @param item Objeto `CarritoItemDto` con la información del producto a agregar.
+     * @return `ResponseEntity` con un mensaje de éxito o de error si ocurre una excepción.
      */
+
     @PostMapping("/agregar")
     public ResponseEntity<?> agregarAlCarrito(@RequestParam Long usuarioId,
                                               @RequestBody CarritoItemDto item) {
@@ -65,10 +69,12 @@ public class CarritoController {
     }
 
     /**
-     * Elimina todos los productos del carrito del usuario.
+     * Elimina todos los productos del carrito de un usuario, dejándolo vacío.
      *
-     * @param usuarioId ID del usuario
+     * @param usuarioId ID del usuario cuyo carrito se desea vaciar.
+     * @return `ResponseEntity` con un mensaje indicando el resultado de la operación.
      */
+
     @DeleteMapping("/{usuarioId}/vaciar")
     public ResponseEntity<?> vaciarCarrito(@PathVariable Long usuarioId) {
         try {
@@ -81,9 +87,15 @@ public class CarritoController {
     }
 
     /**
-     * Ajusta la cantidad de un producto en el carrito.
-     * Si cantidad = 0, lo elimina.
+     * Actualiza la cantidad de un producto específico en el carrito de un usuario.
+     * Si la cantidad proporcionada es 0, el producto será eliminado del carrito.
+     *
+     * @param usuarioId ID del usuario propietario del carrito.
+     * @param productoId ID del producto cuya cantidad se desea actualizar.
+     * @param body Mapa con la clave "cantidad" y el nuevo valor deseado.
+     * @return `ResponseEntity` con un mensaje indicando el resultado de la operación.
      */
+
     @PutMapping("/{usuarioId}/producto/{productoId}")
     public ResponseEntity<?> actualizarCantidadProducto(
             @PathVariable Long usuarioId,
@@ -108,9 +120,15 @@ public class CarritoController {
         }
     }
 
+
     /**
-     * Elimina por completo un producto del carrito.
+     * Elimina completamente un producto específico del carrito del usuario.
+     *
+     * @param usuarioId ID del usuario.
+     * @param productoId ID del producto a eliminar del carrito.
+     * @return `ResponseEntity` con un mensaje de confirmación o de error.
      */
+
     @DeleteMapping("/{usuarioId}/producto/{productoId}")
     public ResponseEntity<?> eliminarProducto(
             @PathVariable Long usuarioId,
@@ -129,11 +147,13 @@ public class CarritoController {
     }
 
     /**
-     * Finaliza la compra: convierte el carrito del usuario en un pedido y lo guarda.
+     * Finaliza el proceso de compra generando un nuevo pedido con los productos del carrito.
+     * El carrito se vacía una vez realizado el pedido.
      *
-     * @param dto DTO con los datos de envío y pago del pedido
-     * @return Confirmación de pedido
+     * @param dto Objeto `CrearPedidoDto` con la información necesaria para generar el pedido (envío, pago, usuario).
+     * @return `ResponseEntity` con un mensaje de confirmación o error si la operación falla.
      */
+
     @PostMapping("/finalizar")
     public ResponseEntity<?> finalizarCompra(@RequestBody CrearPedidoDto dto) {
         try {

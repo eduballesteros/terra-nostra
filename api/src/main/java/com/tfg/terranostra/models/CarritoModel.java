@@ -7,6 +7,11 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Entidad que representa un carrito de compras asociado a un usuario.
+ * Contiene los productos añadidos y la fecha de creación.
+ */
+
 @Entity
 @Table(name = "carrito")
 @Getter

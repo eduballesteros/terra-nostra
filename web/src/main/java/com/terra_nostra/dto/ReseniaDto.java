@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
  * DTO de salida para mostrar una resenia recibida desde la API,
  * con datos del usuario, producto, comentario y fecha.
  */
+
 @Data
 public class ReseniaDto {
 

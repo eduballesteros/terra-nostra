@@ -67,12 +67,29 @@ public class AuthController {
         return ResponseEntity.ok(usuarioDto);
     }
 
+    /**
+     * Valida si un token de restablecimiento de contraseña es válido.
+     * - El token se pasa como parámetro en la URL.
+     * - El servicio valida si el token existe, no ha expirado y está asociado a un usuario.
+     *
+     * @param token El token de restablecimiento de contraseña.
+     * @return `ResponseEntity` con `true` si el token es válido, o `false` si no lo es.
+     */
 
     @GetMapping("/validar-token")
     public ResponseEntity<Boolean> validarToken(@RequestParam String token) {
         boolean esValido = passwordResetTokenService.validarToken(token);
         return ResponseEntity.ok(esValido);
     }
+
+    /**
+     * Cambia la contraseña de un usuario usando un token de restablecimiento.
+     * - El token y la nueva contraseña se reciben en el cuerpo del mensaje.
+     * - El servicio valida el token y actualiza la contraseña si es válido.
+     *
+     * @param cambioContraseniaDto Objeto que contiene el token y la nueva contraseña.
+     * @return `ResponseEntity` con un mensaje indicando si el cambio fue exitoso o no.
+     */
 
     @PutMapping("/cambiar-password")
     public ResponseEntity<String> cambiarContrasenia(@RequestBody CambioContraseniaDto cambioContraseniaDto) {
@@ -84,6 +101,15 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("❌ Token inválido o expirado.");
         }
     }
+
+    /**
+     * Autentica a un usuario usando un token de Google OAuth2.
+     * - Recibe un token de Google en el cuerpo de la petición.
+     * - Si el token es válido y el usuario existe (o se crea), se devuelve un `UsuarioDto` con la sesión iniciada.
+     *
+     * @param tokenGoogleDto Objeto que contiene el token JWT emitido por Google.
+     * @return `ResponseEntity` con la información del usuario autenticado, o un error si falla el proceso.
+     */
 
     @PostMapping("/login-google")
     public ResponseEntity<?> loginConGoogle(@RequestBody TokenGoogleDto tokenGoogleDto) {

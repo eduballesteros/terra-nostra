@@ -72,11 +72,18 @@
         }
 
         /**
-         * Obtiene la lista de todos los productos almacenados en la base de datos.
+         * Lista todos los productos disponibles, con opción de aplicar filtros:
+         * - texto (nombre o descripción),
+         * - disponibilidad (true/false),
+         * - categoría (nombre exacto).
          *
-         * @return `ResponseEntity` con una lista de productos o una lista vacía en caso de error.
+         * Si no se especifican filtros, se devuelven todos los productos.
+         *
+         * @param texto Texto a buscar en nombre o descripción.
+         * @param disponibles Filtrar productos disponibles o no.
+         * @param categoria Categoría por la que filtrar.
+         * @return `ResponseEntity` con una lista de productos o lista vacía si hay error.
          */
-
 
         @GetMapping("/listar")
         public ResponseEntity<List<ProductoDto>> listarProductos(
@@ -200,6 +207,15 @@
             }
         }
 
+        /**
+         * Genera una versión “slug” del nombre del producto (formato URL amigable).
+         *
+         * Esto se puede usar para redirigir a URLs personalizadas tipo: `/productos/miel-de-romero`.
+         *
+         * @param id ID del producto del cual se quiere generar el slug.
+         * @return `ResponseEntity` con el slug generado o mensaje de error si no se encuentra.
+         */
+
         @GetMapping("/redirigir/{id}")
         public ResponseEntity<String> redirigirPorId(@PathVariable Long id) {
             Optional<ProductoDto> productoOpt = productoService.obtenerProductoPorId(id);
@@ -212,6 +228,13 @@
             }
         }
 
+        /**
+         * Obtiene la lista de categorías únicas de productos registrados.
+         *
+         * Útil para alimentar menús o filtros dinámicos en la interfaz de usuario.
+         *
+         * @return `ResponseEntity` con una lista de nombres de categorías.
+         */
 
         @GetMapping("/categorias")
         public ResponseEntity<List<String>> obtenerCategorias() {

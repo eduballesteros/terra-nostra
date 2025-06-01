@@ -5,6 +5,20 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * DTO que representa los detalles de un pedido realizado por un usuario.
+ *
+ * Incluye información del usuario, datos de contacto y envío,
+ * así como los productos adquiridos y el estado del pedido.
+ *
+ * Este DTO se utiliza principalmente para enviar información al frontend,
+ * como por ejemplo en la sección de "Mis pedidos".
+ *
+ * @author ebp
+ * @version 1.0
+ */
+
+
 @Data
 public class PedidoDto {
 

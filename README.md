@@ -79,13 +79,13 @@ terra-nostra/
 
 ### Comandos
 
-# Construcción y ejecución
+## Construcción y ejecución
 docker compose up -d --build
 
-# Ver logs
+## Ver logs
 docker compose logs -f
 
-# Detener contenedores
+## Detener contenedores
 docker compose down
 
 

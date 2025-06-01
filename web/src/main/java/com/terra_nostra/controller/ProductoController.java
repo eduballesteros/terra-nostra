@@ -21,6 +21,20 @@ import java.math.BigDecimal;
 import java.text.Normalizer;
 import java.util.*;
 
+/**
+ * Controlador REST que gestiona las operaciones relacionadas con productos y reseñas.
+ *
+ * Funciones:
+ * - CRUD de productos
+ * - Filtro y búsqueda
+ * - Gestión de imágenes y slugs
+ * - Creación y listado de reseñas
+ *
+ * Utiliza JWT almacenado en cookies para identificar al usuario autenticado.
+ *
+ * @author ebp
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/productos")
 public class ProductoController {
@@ -110,7 +124,6 @@ public class ProductoController {
         }
     }
 
-
     @GetMapping("obtener/{id}")
     public ResponseEntity<ProductoDto> obtenerProductoPorId(@PathVariable Long id) {
         ProductoDto producto = productoService.obtenerProductoPorId(id);
@@ -167,22 +180,18 @@ public class ProductoController {
 
     private String normalizarTexto(String texto) {
         return Normalizer.normalize(texto, Normalizer.Form.NFD)
-                .replaceAll("\\p{M}", "")            // elimina tildes y diacríticos
+                .replaceAll("\\p{M}", "")
                 .toLowerCase()
-                .replaceAll("[ñ]", "n")              // opcionalmente reemplazar ñ
-                .replaceAll("[^a-z0-9\\s]", "");     // elimina símbolos raros
+                .replaceAll("[ñ]", "n")
+                .replaceAll("[^a-z0-9\\s]", "");
     }
-
 
     private ProductoDto construirDto(String nombre, String descripcion, String descripcionBreve, BigDecimal precio,
                                      Integer stock, String categoria, BigDecimal descuento) {
         ProductoDto dto = new ProductoDto();
         dto.setNombre(nombre);
         dto.setDescripcion(descripcion);
-        dto.setDescripcionBreve(
-                (descripcionBreve == null || descripcionBreve.trim().isEmpty())
-                        ? "Sin descripción breve"
-                        : descripcionBreve);
+        dto.setDescripcionBreve((descripcionBreve == null || descripcionBreve.trim().isEmpty()) ? "Sin descripción breve" : descripcionBreve);
         dto.setPrecio(precio);
         dto.setStock(stock);
         dto.setCategoria(categoria);
@@ -190,23 +199,13 @@ public class ProductoController {
         return dto;
     }
 
-    /**
-     * Crea una nueva resenia.
-     *
-     * @param ReseniaDto Datos de la resenia enviados desde el frontend.
-     * @return ReseniaDto con la información de la resenia creada.
-     */
     @PostMapping("/crear-resenia")
     public ResponseEntity<?> crearResenia(@RequestBody String rawJson, HttpServletRequest request) {
         try {
-            // 🔍 Muestra el JSON recibido (opcional)
             logger.info("📦 JSON recibido: {}", rawJson);
-
-            // 🧠 Deserialización manual
             ObjectMapper mapper = new ObjectMapper();
             CrearReseniaDto dto = mapper.readValue(rawJson, CrearReseniaDto.class);
 
-            // 🔐 Obtener token de la cookie
             String token = null;
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
@@ -220,22 +219,16 @@ public class ProductoController {
 
             if (token == null || !jwtUtil.isTokenValido(token)) {
                 logger.warn("❌ Token inválido o no presente.");
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                        .body(Map.of("error", "Sesión no válida. Por favor, inicia sesión."));
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Sesión no válida. Por favor, inicia sesión."));
             }
 
-            // ✅ Extraer ID del usuario del token
             Long usuarioId = jwtUtil.obtenerUsuarioIdDesdeToken(token);
             if (usuarioId == null) {
                 logger.error("❌ No se pudo extraer el ID del usuario del token.");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body(Map.of("error", "Usuario no identificado."));
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "Usuario no identificado."));
             }
 
-            // ✅ Setear usuario manualmente
             dto.setUsuarioId(usuarioId);
-
-            // ✅ Crear la reseña
             ReseniaDto resenia = reseniaService.crearResenia(dto);
             return ResponseEntity.status(HttpStatus.CREATED).body(resenia);
 
@@ -248,13 +241,6 @@ public class ProductoController {
         }
     }
 
-
-    /**
-     * Lista todas las resenias de un producto.
-     *
-     * @param productoId ID del producto.
-     * @return Lista de resenias asociadas al producto.
-     */
     @GetMapping("/producto/{productoId}")
     public ResponseEntity<List<ReseniaDto>> listarPorProducto(@PathVariable Long productoId) {
         try {

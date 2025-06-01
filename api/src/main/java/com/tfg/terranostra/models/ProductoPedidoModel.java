@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 
+/**
+ * Entidad que representa un producto específico dentro de un pedido.
+ * Contiene la cantidad y el precio unitario al momento de la compra.
+ */
 
 @Entity
 @Table(name = "producto_pedido")

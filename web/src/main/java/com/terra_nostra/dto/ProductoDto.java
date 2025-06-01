@@ -12,6 +12,16 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
+/**
+ * DTO que representa un producto disponible en la tienda.
+ * Contiene toda la información necesaria para mostrar o editar productos.
+ * Se usa tanto para la gestión administrativa como para la visualización en el frontend.
+ *
+ * @author ebp
+ * @version 1.0
+ */
+
 @Data
 public class ProductoDto {
 

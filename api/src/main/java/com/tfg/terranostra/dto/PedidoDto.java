@@ -6,6 +6,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * DTO que representa los datos de un pedido realizado por un usuario.
+ * Incluye información del usuario, productos comprados y detalles de envío.
+ */
+
 @Data
 public class PedidoDto {
     private Long id;

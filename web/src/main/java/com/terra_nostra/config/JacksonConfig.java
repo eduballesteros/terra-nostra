@@ -1,4 +1,4 @@
-package com.terra_nostra.config;
+    package com.terra_nostra.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;

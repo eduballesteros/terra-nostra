@@ -12,6 +12,12 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
+/**
+ * DTO que representa los datos de un producto en Terra Nostra.
+ * Se utiliza para transferir información entre cliente y servidor.
+ */
+
 @Data
 public class ProductoDto {
 

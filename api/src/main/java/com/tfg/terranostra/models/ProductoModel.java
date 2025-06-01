@@ -10,6 +10,11 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * Entidad que representa un producto disponible en la tienda Terra Nostra.
+ * Contiene información esencial como nombre, descripción, precio, stock, categoría, imagen, etc.
+ */
+
 @Entity
 @Table(name = "productos")
 @Data

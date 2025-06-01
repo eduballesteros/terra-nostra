@@ -4,6 +4,18 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+/**
+ * DTO que representa un ítem individual dentro del carrito de compras.
+ *
+ * Contiene información mínima necesaria para identificar el producto,
+ * su cantidad, nombre, imagen y precio unitario.
+ *
+ * Se utiliza en conjunto con {@link CarritoDto} para representar la estructura completa del carrito.
+ * Incluye validaciones para asegurar consistencia al agregar o modificar ítems.
+ *
+ * @author ebp
+ * @version 1.0
+ */
 @Data
 public class CarritoItemDto {
 
@@ -14,7 +26,8 @@ public class CarritoItemDto {
         private int cantidad;
 
         private String nombre;
-        private String imagen;
-        private Double precioUnitario;
 
+        private String imagen;
+
+        private Double precioUnitario;
 }

@@ -21,6 +21,22 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/verificacion")
+
+/**
+ * Controlador REST encargado de gestionar la verificación de cuentas de usuario
+ * a través de enlaces enviados por correo electrónico.
+ *
+ * Funcionalidades:
+ * - Reenviar correos de verificación.
+ * - Confirmar tokens de verificación y activar la cuenta.
+ *
+ * Este proceso garantiza que solo usuarios con correos válidos puedan activar su cuenta
+ * y acceder a las funcionalidades de la plataforma.
+ *
+ * @author ebp
+ * @version 1.0
+ */
+
 public class VerificacionCorreoController {
 
     private static final Logger logger = LoggerFactory.getLogger(VerificacionCorreoController.class);

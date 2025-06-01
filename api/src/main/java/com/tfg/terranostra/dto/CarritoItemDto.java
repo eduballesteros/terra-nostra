@@ -4,6 +4,12 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+
+/**
+ * DTO que representa un ítem dentro del carrito,
+ * incluyendo el producto, su cantidad y detalles adicionales.
+ */
+
 @Data
 public class CarritoItemDto {
 

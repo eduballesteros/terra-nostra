@@ -100,7 +100,6 @@ public class PdfGenerator {
             BigDecimal baseImponible = total.divide(divisor, 2, RoundingMode.HALF_UP);
             BigDecimal iva = total.subtract(baseImponible);
 
-
             PdfPTable totalTable = new PdfPTable(2);
             totalTable.setWidthPercentage(40);
             totalTable.setHorizontalAlignment(Element.ALIGN_RIGHT);
@@ -110,7 +109,6 @@ public class PdfGenerator {
             addTotalRow(totalTable, "Base imponible:", baseImponible.doubleValue(), boldFont);
             addTotalRow(totalTable, "IVA (21%):", iva.doubleValue(), boldFont);
             addTotalRow(totalTable, "Total:", total.doubleValue(), boldFont);
-
 
             document.add(totalTable);
 

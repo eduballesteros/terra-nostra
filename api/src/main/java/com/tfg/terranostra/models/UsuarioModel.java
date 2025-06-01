@@ -10,6 +10,12 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entidad que representa un usuario del sistema Terra Nostra.
+ * Contiene los datos personales, credenciales, rol y estado de verificación del correo.
+ */
+
+
 @Entity
 @Table(name = "usuarios")
 @NoArgsConstructor

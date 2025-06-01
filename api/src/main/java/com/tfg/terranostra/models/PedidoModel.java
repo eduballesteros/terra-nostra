@@ -9,6 +9,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Entidad que representa un pedido realizado por un usuario.
+ * Contiene información del usuario, fecha, total, productos comprados y datos de envío/pago.
+ */
+
 @Entity
 @Table(name = "pedidos")
 @Data

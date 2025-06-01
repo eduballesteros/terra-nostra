@@ -1,42 +1,47 @@
-package com.tfg.terranostra.models;
+    package com.tfg.terranostra.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import lombok.*;
+    import jakarta.persistence.*;
+    import jakarta.validation.constraints.Min;
+    import jakarta.validation.constraints.NotNull;
+    import lombok.*;
 
-@Entity
-@Table(name = "carrito_item")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class CarritoItemModel {
+    /**
+     * Entidad que representa un ítem dentro de un carrito de compras.
+     * Contiene la referencia al producto, cantidad, precio en el momento de la compra y datos básicos del producto.
+     */
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Entity
+    @Table(name = "carrito_item")
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public class CarritoItemModel {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "carrito_id", nullable = false)
-    @NotNull(message = "El carrito no puede ser nulo")
-    private CarritoModel carrito;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "producto_id", nullable = false)
-    @NotNull(message = "El producto no puede ser nulo")
-    private ProductoModel producto;
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "carrito_id", nullable = false)
+        @NotNull(message = "El carrito no puede ser nulo")
+        private CarritoModel carrito;
 
-    @Min(value = 1, message = "La cantidad debe ser al menos 1")
-    private int cantidad;
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "producto_id", nullable = false)
+        @NotNull(message = "El producto no puede ser nulo")
+        private ProductoModel producto;
 
-    @Column(name = "precio_unitario", nullable = false)
-    private Double precioUnitario;
+        @Min(value = 1, message = "La cantidad debe ser al menos 1")
+        private int cantidad;
 
-    @Column(name = "nombre")
-    private String nombre;
+        @Column(name = "precio_unitario", nullable = false)
+        private Double precioUnitario;
 
-    @Column(name = "imagen", columnDefinition = "LONGTEXT")
-    private String imagen;
-}
+        @Column(name = "nombre")
+        private String nombre;
+
+        @Column(name = "imagen", columnDefinition = "LONGTEXT")
+        private String imagen;
+    }

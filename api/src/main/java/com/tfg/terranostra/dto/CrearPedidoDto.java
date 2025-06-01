@@ -5,6 +5,11 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import java.util.List;
 
+/**
+ * DTO utilizado para crear un nuevo pedido desde el cliente.
+ * Contiene los datos del usuario, detalles del envío y productos del carrito.
+ */
+
 @Data
 public class CrearPedidoDto {
 
