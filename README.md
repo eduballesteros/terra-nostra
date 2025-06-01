@@ -93,11 +93,11 @@ docker compose down
 
 ```
 | Servicio | Puerto | URL                                      |
-|----------|--------|-------------------------------------------|
-| API      | 8081   | http://localhost:8081/api/...             |
-| Web      | 8082   | http://localhost:8082                    |
-| MySQL    | 3306   | Localhost                                 |
-| NGINX    | 443/80 | https://terra-nostra.tudominio.com       |
+|----------|--------|----------------------------------------------------------------------------------------------------------------|
+| API      | Interno 8081   | [https://terra-nostra.eduballesterosperez.com/api/](https://terra-nostra.eduballesterosperez.com/api/) |
+| Web      | Interno 8082   | [https://terra-nostra.eduballesterosperez.com](https://terra-nostra.eduballesterosperez.com)           |
+| MySQL    | ****   | Servidor                                                                                                       |
+| NGINX    | 443/80 | https://terra-nostra.tudominio.com                                                                             |
 ```
 ## 🧠 Autor
 
