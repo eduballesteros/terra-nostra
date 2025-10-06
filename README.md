@@ -1,5 +1,6 @@
 # 🌱 Terra Nostra
 
+ACTUALMENTE NO SE ENCUENTRA DISPONIBLE POR CAMBIO DE SERVIDORES
 **Terra Nostra** es una plataforma web de e-commerce centrada en productos naturales y sostenibles. El sistema está dividido en dos subproyectos:
 
 - **API REST (Spring Boot)**: Gestión de datos, seguridad, lógica de negocio.
